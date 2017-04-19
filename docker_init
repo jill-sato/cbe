@@ -17,8 +17,18 @@ groupadd -g${jenkins_gid} jenkins
 useradd -d/var/lib/jenkins -s/bin/bash -u${jenkins_uid} -g${jenkins_gid} jenkins
 usermod -aG docker jenkins
 
-# switch to the jenkins user
-su jenkins
+# TODO put it in the cbe
+apt-get install gdb -y
+
+# TODO do it on parent process ?
+# TODO script the following steps
+
+# gdb --pid 1
+# b getgroups
+# call setgroups(2,{497,999})
+# call setuid(498)
+# detach
+# quit
 
 # check docker is working
 docker version
