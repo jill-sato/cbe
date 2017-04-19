@@ -1,0 +1,26 @@
+#!/bin/bash -e
+
+# jenkins host uid/gid
+jenkins_uid=
+jenkins_gid=
+
+# aws credentials
+access_key=
+secret_key=
+
+# aws config
+region=us-west-2
+
+# create jenkins user and group
+# add it to the docker group
+groupadd -g${jenkins_gid} jenkins
+useradd -d/var/lib/jenkins -s/bin/bash -u${jenkins_uid} -g${jenkins_gid} jenkins
+usermod -aG docker jenkins
+
+# switch to the jenkins user
+su jenkins
+
+aws configure set default.region ${region}
+aws configure set aws_access_key_id ${access_key}
+aws configure set aws_secret_access_key ${secret_key}
+eval `aws ecr get-login`
