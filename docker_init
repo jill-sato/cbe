@@ -20,6 +20,11 @@ usermod -aG docker jenkins
 # switch to the jenkins user
 su jenkins
 
+# check docker is working
+docker version
+docker info
+
+# authenticate to AWS ECR
 aws configure set default.region ${region}
 aws configure set aws_access_key_id ${access_key}
 aws configure set aws_secret_access_key ${secret_key}
