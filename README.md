@@ -24,7 +24,7 @@ E.g.
 
 ## Login to AWS Docker Repository
 
-The image includes the AWS cli in order to authenticate to the AWS ECR.
+The image includes the AWS cli in order to authenticate to AWS ECR.
 The steps to login to the AWS ECR are encapsulated in the ecr_docker_login shell script.
 
 The script must be mounted, so that it can be invoked inside the container.
