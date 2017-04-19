@@ -7,4 +7,4 @@ region=us-west-2
 aws configure set default.region ${region}
 aws configure set aws_access_key_id ${access_key}
 aws configure set aws_secret_access_key ${secret_key}
-eval `aws ecr get-login`''
+eval `aws ecr get-login`
